@@ -1,0 +1,231 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spindoku - Game</title>
+<link rel="icon" href="./images/sudoku-icon.svg">
+<link rel="stylesheet" href="./sudoku-board-styles.css">
+<link rel="stylesheet" href="./sudoku-modal-styles.css">
+ <style>
+body {
+font-family: Consolas, monospace;
+margin: 0;
+background-color: #f8f9fa;
+/* Prevent text selection on page*/
+-webkit-user-select: none; /* Safari */
+user-select: none; /* Standard syntax */
+}
+
+
+#sudoku-game-container{
+display: grid;
+width: 100vw;
+height: 100vh;
+justify-content: center;
+align-content: center;
+}
+
+#sudoku-board-top-controls{display: flex;}
+#top-controls-container{margin-left: auto;}
+#sudoku-board-alt-controls{
+    display: flex;
+    justify-content: center;
+}
+
+
+.number-divs div{
+background: radial-gradient(#e3e3e3, #bdbdbd);
+align-content: center;
+  text-align: center;
+  font-size: 7.5vmin;
+  font-weight: bold;
+}
+
+
+#game-timer-container{
+height: 100%;
+    font-size: 5vmin;
+    line-height: 100%;  
+}
+
+#candidates-checkbox{
+display:none;
+}
+.svg-icon{width: 12vmin;
+    height: 12vmin;}
+.tap-icon, .sticky-icon, #candidates-checkbox:not(:checked) + #candidates-checkbox-image {
+filter: grayscale(1) drop-shadow(.25em .25em .25em);
+}
+
+.tap-icon:active:not(.disabled-icon), .active-icon, #candidates-checkbox:checked + #candidates-checkbox-image {
+filter: drop-shadow(.25em .25em .25em #007bff);
+}
+.disabled-icon, .disabled-icon *{
+    opacity: 0.5;
+}
+
+#sudoku-board-top-controls{grid-area: a;}
+#sudoku-board-container {grid-area:b;}
+#sudoku-controls{grid-area:c;}
+
+
+#game-rotation-range-value{display: inline-block;
+    width: 2ch;}
+
+@media (orientation: landscape) {
+#sudoku-game-container{
+grid-template: 
+        "b a" 15vh
+        "b c" fit-content(100%);
+}
+#sudoku-controls,#sudoku-board-top-controls{margin-left:2vmin;}
+#sudoku-controls{
+/*width: calc(80vw - 90vmin);*/
+}
+.number-divs {
+display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, calc(50vh / 3));
+}
+}
+
+
+@media (orientation: portrait) {
+#sudoku-game-container {
+grid-template:
+        "a" 
+        "b"
+        "c";
+}
+#sudoku-board-top-controls{margin-bottom:2vmin;}
+#sudoku-controls{margin-top:2vmin;}
+.number-divs {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+       justify-content: center;
+    }
+.number-divs div{
+width: 20%;
+}
+
+}
+
+
+
+</style>
+
+</head>
+<body class="preload">
+        <dialog id="game-dialog">
+        <img src="./images/sudoku-logo.svg" id="game-play-logo">
+        <div id="select-difficulty-container" class="container">
+        <div id="select-difficulty-content" class="container">
+        <h1>New Game</h1>
+        <button data-difficulty="easy" class="difficulty-button fullwidth-button">Easy</button>
+        <button data-difficulty="medium" class="difficulty-button fullwidth-button">Medium</button>
+        <button data-difficulty="hard" class="difficulty-button fullwidth-button">Hard</button>
+        </div>
+        <div id="select-difficulty-loading" class="container">
+        <img id="loading-image" src="./images/loading-icon.svg">
+        </div>
+        </div>
+        <div id="select-settings-container" class="container">
+        <div id="select-settings-content">
+          <button class="fullwidth-button restart-game-button">Restart Game</button>
+          <button class="fullwidth-button new-game-button">New Game</button>
+          <button id="game-settings-button" class="fullwidth-button">Options</button>
+          <button class="fullwidth-button close-modal-button">Cancel</button>
+          <!--add event handlers to close the modal for buttons with close-modal-button class-->
+        </div>
+        </div>
+        <div id="select-options-container" class="container">
+        <div id="select-options-content" class="container">
+
+        <label for="game-rotation-range" class="regular-label">Rotation Rate</label><br>
+<input id="game-rotation-range" type="range" min="5" max="60" list="game-rotation-range-markers" style="width:80%;">
+
+<output id="game-rotation-range-value"></output>
+        <datalist id="game-rotation-range-markers">
+  <option value="10" label="10"></option>
+  <option value="20" label="20"></option>
+  <option value="30" label="30"></option>
+  <option value="40" label="40"></option>
+  <option value="50" label="50"></option>
+  <option value="60" label="60"></option>
+</datalist>
+  <label for="game-validation-selection" class="regular-label">Flag</label><br>
+  <select id="game-validation-selection">
+   <option value="violatesRule">Contradicting Solutions</option>
+   <option value="wrongSolution">Wrong Solutions</option>
+   <option value="none">Nothing</option>    
+  </select>
+
+<button class="fullwidth-button close-modal-button">Done</button>
+        </div>
+        </div>
+<div id="winning-game-container" class="container">
+  <h1>You Won!</h1>
+  <div id="winning-stats">
+  <span>Difficulty: <span id="winning-difficulty"></span></span>
+  <span>Time: <span id="winning-time"></span></span>
+  <span>Hints Used: <span id="winning-hints"></span></span>
+  </div>
+ <button class="fullwidth-button restart-game-button">Restart Game</button>
+ <button class="fullwidth-button new-game-button">New Game</button>
+</div>
+
+        </dialog>
+
+<div id="sudoku-game-container" class="container">
+<div id="sudoku-board-top-controls">
+  <div id="game-timer-container">
+    <div id="game-timer">00:00:00</div>
+</div>
+<div id="top-controls-container">
+<svg class="svg-icon sticky-icon" id="game-pause-icon"><use xlink:href="./images/icons.svg#pause-icon"/></svg>
+<svg class="svg-icon tap-icon" id="game-settings-icon"><use xlink:href="./images/icons.svg#settings-icon"/></svg>
+</div>
+</div>
+<div id="sudoku-board-container">
+<div id="sudoku-board"></div> <!--div where board will generate-->
+</div>
+<div id="sudoku-controls" class="controls">
+  <div class="number-divs">
+    <div data-value="1">1</div>
+    <div data-value="2">2</div>
+    <div data-value="3">3</div>
+    <div data-value="4">4</div>
+    <div data-value="5">5</div>
+    <div data-value="6">6</div>
+    <div data-value="7">7</div>
+    <div data-value="8">8</div>
+    <div data-value="9">9</div>
+   </div>
+   <div id="sudoku-board-alt-controls">
+    <label id="candidates-checkbox-label">
+      <input type="checkbox" id="candidates-checkbox">
+      <svg class="svg-icon" id="candidates-checkbox-image"><use xlink:href="./images/icons.svg#notes-icon" /></svg>
+    </label>
+<div>
+<svg class="svg-icon disabled-icon tap-icon" id="game-undo-icon"><use xlink:href="./images/icons.svg#undo-icon"/></svg>
+<svg class="svg-icon tap-icon" id="cell-reset-icon"><use xlink:href="./images/icons.svg#eraser-icon"/></svg>
+<svg class="svg-icon tap-icon" id="game-hint-icon" viewBox="0 0 100 140">
+<use xlink:href="./images/icons.svg#hint-icon"/>
+<text id="game-hint-icon-counter" x="50" y="50" dominant-baseline="alphabetic" text-anchor="middle" font-size="40" fill="#FF0500" stroke="black" stroke-width="0.5" font-family="monospace">3</text>
+</svg>
+</div>
+
+  </div>
+</div> 
+</div>
+
+<script type="module">
+  import { initializeSudoku } from './js/initializeSudoku.js';
+  window.addEventListener('load', () => {
+    initializeSudoku();});
+    </script>
+</body>
+</html>
+

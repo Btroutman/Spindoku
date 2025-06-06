@@ -1,0 +1,33 @@
+ #game-dialog:open{
+display: flex;
+flex-direction: column;
+align-items: center; /* Centers horizontally */
+width: 80vmin;
+height: 80vmin;  
+container-type: size;
+}
+
+#game-play-logo{
+height: 20cqh;  
+}
+#loading-image{
+height: 75cqh;
+}
+
+#game-dialog h1 {
+    text-align: center;
+    font-size: 10cqh;
+}
+#select-options-content{text-align:center;}
+#game-rotation-range-value, #game-validation-selection, .regular-label{font-size: 5cqh;}
+#select-difficulty-loading{
+width: 100%;
+justify-content: center;}
+
+.fullwidth-button{
+width:100%;
+font-size: 8cqh;
+}
+.fullwidth-button:focus-visible{
+outline:none;
+}

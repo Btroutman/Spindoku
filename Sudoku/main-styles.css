@@ -1,0 +1,107 @@
+ :root {
+  --button-default-color:#f0f0f0;
+}
+ /* Styles for whole page and board*/
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f8f9fa;
+    /* Prevent text selection on page*/
+-webkit-user-select: none; /* Safari */
+  user-select: none; /* Standard syntax */
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;    
+}
+
+
+/* Styles for game buttons*/
+
+#sudoku-controls{
+background-color: var(--button-default-color);
+width: 90vmin;    
+}
+.number-divs {
+display: inline-grid;
+    width: 100%;
+    grid-template-columns: repeat(9, 10vmin);
+}
+.number-divs div {
+  text-align: center;
+  font-size: 7.5vmin;
+  font-weight: bold;
+}
+#candidates-checkbox-label{
+vertical-align: bottom;
+margin-left: 0.5vmin;
+}
+#candidates-checkbox-image {
+height: 7.5vmin;
+}
+#candidates-checkbox{
+display:none;
+}
+
+#candidates-checkbox:not(:checked) + #candidates-checkbox-image {
+filter: grayscale(1) drop-shadow(.25em .25em .25em);
+}
+#candidates-checkbox:checked + #candidates-checkbox-image {
+filter: drop-shadow(.25em .25em .25em #007bff);
+}
+
+
+
+/* Styles for page load */
+#select-difficulty-dialog{
+width: 80vw;
+}
+
+body.preload{
+background-image: url('./images/sudoku-modal-bg.svg');
+background-repeat: no-repeat;
+background-size: 400%;
+background-position: center
+}
+
+#select-difficulty-container{
+    height:100%;
+    }
+#select-difficulty-dialog .difficulty-button{
+display: block;
+font-size: 5vmin;
+width: 80vmin;
+border-radius: 2vmin;
+}
+#select-difficulty-loading{
+display:none;
+}
+#loading-image{
+height:40vh;
+}
+.svg-icon{
+width: 7.5vmin;
+height: 7.5vmin;
+}
+#game-undo-icon:not(.disabled-icon){
+filter: drop-shadow(.25em .25em .25em);
+}
+.disabled-icon *{
+    opacity: 0.5;
+}
+#sudoku-board-top-controls{
+display: flex;
+justify-content: space-between;
+width: 90vmin;
+}
+#game-timer-container{
+    display: flex;
+    justify-content: flex-start;
+}
+
+#game-pause-icon{
+display: flex;
+justify-content: space-between;
+}

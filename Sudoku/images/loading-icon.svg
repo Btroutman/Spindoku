@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 100 100"
+>
+  <circle
+    cx="50"
+    cy="50"
+    r="45"
+    stroke="#007bff"
+    stroke-width="10"
+    fill="none"
+    stroke-linecap="round"
+    stroke-dasharray="80,283"
+  >
+    <animate
+      attributeName="stroke-dasharray"
+      values="0,283;80,283;80,283"
+      keyTimes="0;0.5;1"
+      dur="1s"
+      fill="freeze"
+      repeatCount="1"
+    />
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      from="0 50 50"
+      to="360 50 50"
+      dur="1.5s"
+      repeatCount="indefinite"
+    />
+  </circle>
+</svg>

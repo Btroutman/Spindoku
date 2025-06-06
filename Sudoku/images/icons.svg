@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+<symbol id="notes-icon" viewBox="0 0 100 140">
+<!-- Pencil body -->
+  <path d="M26.4378 76.8109 63.9378 11.859 76.0622 18.859 38.5622 83.8109Z " fill="#FDB600" stroke="black" stroke-width="1"/>
+ <path d="M26.4378 76.8109 29.1699 76.0788C29.1699 76.0788 32.2679 76.7128 32.634 78.0788L33 79.4449 34.366 79.0788C34.366 79.0788 35.7321 78.7128 37.8301 81.0788L38.5622 83.8109Z" fill="white" stroke="black" stroke-width="0.5"/>
+  <!-- Pencil lines -->
+  <path d=" M67.4019 13.859 30.9019 77.0788Z" stroke="black" stroke-width="0.5"/>
+  <path d=" M72.5981 16.859 36.0981 80.0788Z" stroke="black" stroke-width="0.5"/>
+  <!-- Eraser -->
+<path d="M63.9378 11.859 66.4378 7.5289C66.4378 7.5289 67.4378 5.7968 68.3038 6.2968L78.6962 12.2968C78.6962 12.2968 79.5622 12.7968 78.5622 14.5289L76.0622 18.859 63.9378 11.859Z" fill="#C6527A" stroke="black" stroke-width="1"/>
+  <!-- Eraser band -->
+<path d="M63.9378 11.859 76.0622 18.859 77.0622 17.1269 64.9378 10.1269Z" fill="#B6C5CD" stroke="black" stroke-width="1"/>
+  <!-- Pencil tip -->
+  <path d="M26.4378 76.8109 29.1699 76.0788C29.1699 76.0788 32.2679 76.7128 32.634 78.0788L33 79.4449 34.366 79.0788C34.366 79.0788 35.7321 78.7128 37.8301 81.0788L38.5622 83.8109 33.0311 86.391 26.9689 82.891Z" fill="#dbd093" stroke="black" stroke-width="1"/>
+  <path d="M26.9689 82.891 27.5 88.9711 33.0311 86.391C33.0311 86.391 30.5 83.775 26.9689 82.891Z" fill="black" stroke="black" stroke-width="1"/>
+<text x="50" y="125" dominant-baseline="alphabetic" text-anchor="middle" font-size="30" fill="#000" font-family="monospace">Notes</text>
+</symbol>
+<symbol id="pause-icon" viewBox="0 0 100 140">
+   <rect width="35" height="90" x="7" y="5" rx="5" ry="5" fill="#ff0500" />
+  <rect width="35" height="90" x="58" y="5" rx="5" ry="5" fill="#ff0500" />
+
+  <text x="50" y="125" dominant-baseline="alphabetic" text-anchor="middle" font-size="30" fill="#000" font-family="monospace">Pause</text>
+</symbol>
+<symbol id="undo-icon" viewBox="0 0 100 140">
+
+  <!-- Circular arrow path for the "undo" icon -->  
+  <path d="M17.091 69A1 1 60 0082.909 31C82.909 31 63.909-1.909 31 17.091L27.5 11.0289 17.6795 34.0192 42.5 37.0096 39 30.9474A1 1-30 0161 69.0526C61 69.0526 41.9474 80.0526 30.9474 61Z"
+         stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="50" y="125" dominant-baseline="alphabetic" text-anchor="middle" font-size="30" fill="#000" font-family="monospace">Undo</text>
+  </symbol>
+
+  <symbol id="eraser-icon" viewBox="0 0 100 140">
+
+ <path d="M19.1623 50.0328 65.125 9.5372C65.125 9.5372 69.7213 5.4877 73.578 10.3137L92.0903 33.4789C92.0903 33.4789 95.947 38.305 91.3507 42.3546L45.3881 82.8502 19.1623 50.0328z" stroke="black" fill="#ff68b4"/>
+ <path d="M9.9698 58.132C9.9698 58.132 5.3735 62.1815 9.2302 67.0076L27.7425 90.1728C27.7425 90.1728 31.5993 94.9989 36.1955 90.9493L45.3881 82.8502 19.1623 50.0328 9.9698 58.132z" stroke="black" fill="#ffb4da"/>
+
+<text x="50" y="125" dominant-baseline="alphabetic" text-anchor="middle" font-size="30" fill="#000" font-family="monospace">Clear</text>
+  </symbol>
+  <symbol id="settings-icon" viewBox="0 0 100 140">
+<path fill-rule="evenodd" fill="#ff0500" d="M73.9432 88.0541l-2.7384-11.6596c1.9266-1.5471 3.671-3.2936 5.2117-5.2133l11.7259 2.6114c.9471.2116 1.91-.291 2.2831-1.1881l4.2057-10.1609c.3737-.9059.0391-1.9493-.796-2.465l-10.1387-6.2845c.2789-2.4729.2819-4.9638.01-7.4337l10.0868-6.41C94.6124 39.3293 94.9415 38.2947 94.5696 37.3966l-4.2095-10.1627c-.375-.9054-1.3509-1.4061-2.3057-1.1816l-11.5485 2.714c-1.5559-1.9533-3.3117-3.7199-5.2396-5.2701l2.6781-11.5652c.2212-.9554-.2794-1.9235-1.1824-2.3006L62.6047 5.4232c-.8963-.3713-1.9308-.0466-2.4509.7727l-6.3841 10.0025c-2.4864-.2798-4.9968-.2834-7.4938-.0089l-6.257-10.0311c-.5167-.8294-1.5601-1.1636-2.4617-.7901l-10.1627 4.2095c-.8962.3712-1.3966 1.3318-1.1886 2.2783l2.5523 11.5657c-1.9557 1.5657-3.7284 3.3433-5.2926 5.3052l-11.5269-2.6744c-.9509-.2209-1.9235.2794-2.3006 1.1824l-4.2139 10.1622c-.3713.8963-.0459 1.9327.7735 2.4527l10.0301 6.3879c-.274 2.4796-.2714 4.9788.0055 7.4554l-10.0827 6.2893C5.3219 60.4965 4.9888 61.5372 5.3631 62.4408l4.2095 10.1627c.3712.8962 1.3318 1.3966 2.2775 1.1868l11.6831-2.5771c1.57 1.9453 3.3363 3.701 5.2767 5.2395l-2.604 11.6969c-.2146.9505.2892 1.9107 1.1863 2.2838l10.1654 4.2061c.9059.3737 1.9512.0383 2.4669-.7967l6.2973-10.1809c2.4495.2692 4.9201.2653 7.374-.0085l6.4493 10.1398c.5218.8208 1.5569 1.1454 2.453.7743l10.1627-4.2095C73.667 89.9846 74.1676 89.0088 73.9432 88.0541 ZM35 50A1 1 0 0065 50 1 1 0 0035 50Z"/>
+<text x="50" y="125" dominant-baseline="alphabetic" text-anchor="middle" font-size="30" fill="#000" font-family="monospace">Settings</text>
+</symbol>
+<symbol id="hint-icon" viewBox="0 0 100 140">
+   <!-- Bulb shape -->
+    <path d="M 50 5.5 C 71.12 5.5 86.96 31.68 76 53 C 71.12 63.36 60.56 68.64 60.56 79.2 C 60.56 79.2 50 73.92 39.44 79.2 C 39.44 68.64 28.88 63.36 23.6 52.8 C 13.04 31.68 28.88 5.5 50 5.5 z" 
+          fill="yellow" stroke="black" stroke-width="1"/>
+
+    <!-- Base -->
+    <path d="M 60.56 79.2 C 60.56 79.2 50 73.92 39.44 79.2 L 39.44 89.76 C 39.44 89.76 40.76 92.4 42.08 92.4 L 57.92 92.4 C 57.92 92.4 59.24 92.4 60.56 89.76 L 60.56 79.2 z" 
+    fill="gray" stroke="black" stroke-width="1"/>
+
+    <path d="M44 92.4C44 92.4 44 95 47 95L53 95C53 95 56 95 56 92.4 z" 
+    fill="gray" stroke="black" stroke-width="1"/>
+
+    <!-- Screw lines -->
+    <path d="M 60.56 85 C 60.56 85 50 79.72 39.44 85" stroke="black" stroke-width="0.5" fill="none"/>
+    <path d="M 60.56 88 C 60.56 88 50 82.72 39.44 88" stroke="black" stroke-width="0.5" fill="none"/>
+    <path d="M 60.56 82 C 60.56 82 50 76.72 39.44 82" stroke="black" stroke-width="0.5" fill="none"/>
+<text x="50" y="125" dominant-baseline="alphabetic" text-anchor="middle" font-size="30" fill="#000" font-family="monospace">Hint</text>
+</symbol>
+</defs>
+        <!--
+          <line x1="0" y1="50" x2="100" y2="50" stroke="black" stroke-width="1"/>
+c
+</svg>
