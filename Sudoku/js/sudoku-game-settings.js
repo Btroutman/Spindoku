@@ -22,7 +22,6 @@ export const sudokuGameSettings = {
         this.outputElement.textContent = this.rangeInput.value+'s';
         };
         this.rangeInput.value=Math.round(this.rotationRate/1000);
-        console.log(this.rangeInput.value);
         updateOutputValue();
 
         this.rangeInput.addEventListener('pointerup', () => {

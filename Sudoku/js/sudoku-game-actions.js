@@ -166,7 +166,7 @@ export const sudokuMutationObserver = {
 
 
 validateSolution() {
-sudokuGameTimerAndRotator.togglePause({forceResume:true});
+
 if(sudokuGameSettings.solutionValidation=="none"){return false;}
 
         sudokuBoard.cells.forEach(cell => {
@@ -215,7 +215,7 @@ checkCompletedPuzzle() {
 },
 
    handleMutations(mutationList) {
-      
+ sudokuGameTimerAndRotator.togglePause({forceResume:true});     
       if (mutationList.length > 10) return false;     
 if (!document.querySelector(".solution:empty")&& this.checkCompletedPuzzle()) {
 document.getElementById("winning-difficulty").textContent=GameData.currentGame.difficulty;
